@@ -6,4 +6,4 @@ Those in need of water can find the nearest local source, based on geolocation a
 
 Maji uses Rails '2.3.3'
 
-Back-end code for Maji can be found at: 
+Back-end code for Maji can be found at: https://github.com/kells08/Maji-back-end 
