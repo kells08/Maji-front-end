@@ -7,13 +7,12 @@ import Shop from './Shop'
 class MainContainer extends Component {
   render() {
     return (
-      <div>
-        <p>** Main Container</p>
+      <div style={{border:"2px solid blue"}}>
+        <p >** Main Container</p>
         <WaterZone />
         <Wrapper />
         <Projects />
         <Shop />
-        <p>** end Main Container</p>
       </div>
     );
   }
