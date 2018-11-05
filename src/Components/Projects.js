@@ -4,7 +4,8 @@ class Projects extends Component {
   render() {
     return (
       <div style={{border:"2px solid green"}}>
-        <p>Projects</p>
+        <h3>Contribute to our projects!</h3>
+        <p>(display projects)</p>
       </div>
     );
   }

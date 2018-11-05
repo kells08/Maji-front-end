@@ -6,7 +6,16 @@ import WaterLocForm from './WaterZone/WaterLocForm'
 class WaterZone extends Component {
 
   componentDidMount() {
-    fetch('http://localhost:3000/water_locations')
+    const token = localStorage.token
+    fetch('http://localhost:3000/water_locations', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }
+    })
+    .then(resp => resp.json())
+    .then(console.log)
   }
 
   render() {

@@ -4,7 +4,8 @@ class Footer extends Component {
   render() {
     return (
       <div style={{border:"2px solid green"}}>
-        <p>Footer</p>
+        <p>Footer: Developed by Kelly Lwakatare</p>
+        <p>2018</p>
       </div>
     );
   }

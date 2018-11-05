@@ -5,8 +5,7 @@ class Nav extends Component {
   render() {
     return (
       <div >
-          <p>Nav</p>
-          <button>Logout</button>
+          <button onClick={ e => this.props.handleClick(e)}>Logout</button>
       </div>
 
     );

@@ -9,14 +9,24 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 class App extends Component {
 
+  state = {
+    clickLogout: false
+  }
+
+  handleClick = (e) => {
+    localStorage.clear()
+    this.setState({})
+  }
+
   render() {
+    console.log(this.props)
     return (
       <React.Fragment>
-        <Header />
+        <Header handleClick={this.handleClick}/>
         <BrowserRouter>
           <Switch>
-            <Route path="/app" component={MainContainer} />
             <Route path="/login" component={Login} />
+            <Route path="/app" component={MainContainer} />
             <Route path="/" component={Page} />
           </Switch>
         </BrowserRouter>
