@@ -19,13 +19,12 @@ class MainContainer extends Component {
       />
    )
     return (
-      <div style={{border:"2px solid blue"}}>
-        <p >** Main Container</p>
+      <div style={{border:"2px solid orange"}}>
         <WaterZone />
         <Wrapper />
         <DonateForm />
-        <Projects />
         <Shop />
+        <Projects />
       </div>
     );
   }

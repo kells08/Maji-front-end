@@ -17,7 +17,8 @@ class Login extends Component {
       country: "",
       postcode: ""
     },
-    loggedIn: false
+    loggedIn: false,
+    clickedSignup: false
   }
 
   login = () => {
@@ -83,7 +84,7 @@ class Login extends Component {
 
   saveUser = (e) => {
     const token = localStorage.token
-    fetch('http://localhost:3000/login', {
+    fetch('http://localhost:3000/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
