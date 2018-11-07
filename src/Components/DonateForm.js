@@ -2,6 +2,17 @@ import React, { Component } from 'react';
 import PaypalButton from './PaypalButton'
 
 class DonateForm extends Component {
+
+  state= {
+    total: 0
+  }
+
+  donateAmount = (e) => {
+    this.setState({
+      total: e.target.value
+    })
+  }
+
   render() {
 
     // const onSuccess = (payment) =>
@@ -13,12 +24,14 @@ class DonateForm extends Component {
     // const onCancel = (data) =>
     //   console.log('Cancelled payment!', data);
 
+    console.log("donateAmount", this.state)
+
     return (
       <div>
           <h3>Donate!</h3>
           <p>Make a donation of any amount to help support Maji's efforts.</p>
-          {/* <input placeholder="Enter amount in USD" /><br/><br/> */}
-          <PaypalButton/><br/>
+          <input placeholder="Enter amount in USD" onChange={this.donateAmount} /><br/><br/>
+          <PaypalButton total={this.state.total}/><br/>
       </div>
     );
   }

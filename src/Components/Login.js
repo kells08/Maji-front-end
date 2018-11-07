@@ -84,29 +84,33 @@ class Login extends Component {
 
   saveUser = (e) => {
     const token = localStorage.token
-    fetch('http://localhost:3000/users', {
+    fetch('http://localhost:3000/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
       },
       body: JSON.stringify ({
-        user: {
-          "name": this.state.user.name,
-          "username": this.state.user.username,
-          "password": this.state.user.password,
-          "phone": this.state.user.phone,
-          "email": this.state.user.email,
-          "street": this.state.user.street,
-          "city": this.state.user.city,
-          "state": this.state.user.state,
-          "country": this.state.user.country,
-          "postcode": this.state.user.postcode
-        }
+        "name": this.state.user.name,
+        "username": this.state.user.username,
+        "password": this.state.user.password,
+        "phone": this.state.user.phone,
+        "email": this.state.user.email,
+        "street": this.state.user.street,
+        "city": this.state.user.city,
+        "state": this.state.user.state,
+        "country": this.state.user.country,
+        "postcode": this.state.user.postcode
       })
     })
     .then(resp => resp.json())
-    .then(console.log)
+    .then(data => {
+      console.log(data)
+      this.setState({
+        user: data,
+        clickedSignup: false
+      })
+    })
   }
 
   render() {
@@ -122,7 +126,7 @@ class Login extends Component {
     )
     return (
       <div>
-      {this.state.clickedSignup ? <SignupForm saveUser={this.saveUser} createUser={this.createUser}/> : 
+      {this.state.clickedSignup ? <SignupForm saveUser={this.saveUser} createUser={this.createUser} handleSignup={this.handleData}/> : 
         <div style={{border:"2px solid green"}}>
           <div>
             <h2>Welcome!</h2>
