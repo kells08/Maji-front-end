@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withScriptjs,  withGoogleMap, GoogleMap, Marker } from "react-google-maps"
+import { withScriptjs,  withGoogleMap, GoogleMap, Marker, InfoWindow } from "react-google-maps"
 
 class Map extends Component {
 
@@ -8,8 +8,8 @@ class Map extends Component {
   }
 
   selectPin = (e) => {
-    debugger
-    console.log("pin", e.target.id)
+    //debugger
+    console.log("pin", e)
     this.setState({
       selectedPin: e
     })
@@ -22,9 +22,23 @@ class Map extends Component {
       <GoogleMap
         defaultZoom={9}
         defaultCenter={{ lat: -3.558535, lng: 37.552250 }}>
+        
         {waterlocs.map(waterloc => {
           let [ lat, lng ] = waterloc.geolocation.split(', ').map(parseFloat)
-         return <Marker onClick={this.selectPin} value={waterloc.id} key={waterloc.id} position={{ lat, lng }} />
+         return (
+         <Marker onClick={this.selectPin} value={waterloc.geolocation} key={waterloc.id} position={{ lat, lng }} >
+           <InfoWindow position={{lat, lng}}>
+            <div>
+				    <p>Geolocation: {waterloc.geolocation}</p>
+            <p>City: {waterloc.city}</p>
+            <p>Details: {waterloc.details}</p>
+            <p>Currently Active: {waterloc.active === 1 ? "No" : "Yes"}</p>
+            <p>Hours: {waterloc.hours}</p>
+            </div>
+           
+			    </InfoWindow>
+         </Marker>
+         )
         })}
       </GoogleMap>
     );
