@@ -11,7 +11,7 @@ class Product extends Component {
     console.log("price", e.target.value)
     this.setState({
       purchase: { ...this.state.purchase, purchase: e.target.value}
-    })//use this format: this.setState({ user: { ...this.state.user, [e.target.name]: e.target.value} })
+    })//try  this format: this.setState({ user: { ...this.state.user, [e.target.name]: e.target.value} })
   }  //then .reduce to get total in cart
 
   // getPrice = () =>{
