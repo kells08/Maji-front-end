@@ -29,13 +29,12 @@ class Map extends Component {
          <Marker onClick={this.selectPin} value={waterloc.geolocation} key={waterloc.id} position={{ lat, lng }} >
            <InfoWindow position={{lat, lng}}>
             <div>
-				    <p>Geolocation: {waterloc.geolocation}</p>
-            <p>City: {waterloc.city}</p>
-            <p>Details: {waterloc.details}</p>
-            <p>Currently Active: {waterloc.active === 1 ? "No" : "Yes"}</p>
-            <p>Hours: {waterloc.hours}</p>
+              <p>Geolocation: {waterloc.geolocation}</p>
+              <p>City: {waterloc.city}</p>
+              <p>Details: {waterloc.details}</p>
+              <p>Currently Active: {waterloc.active === 1 ? "No" : "Yes"}</p>
+              <p>Hours: {waterloc.hours}</p>
             </div>
-           
 			    </InfoWindow>
          </Marker>
          )
