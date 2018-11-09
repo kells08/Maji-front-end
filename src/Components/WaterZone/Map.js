@@ -7,6 +7,10 @@ class Map extends Component {
   //   isOpen: false
   // }
 
+  state = {
+    isOpen: false
+  }
+
   handleToggleOpen = (markerId) => {
     this.setState({ 
       isOpen: true
@@ -34,7 +38,7 @@ class Map extends Component {
          return (
 
          <Marker onClick={() => this.onToggleOpen} value={waterloc.geolocation} key={waterloc.id} position={{ lat, lng }} >
-
+        {this.state.isOpen &&
            <InfoWindow position={{lat, lng}} onCloseClick={this.onToggleOpen}>
               <div>
                 <p>Geolocation: {waterloc.geolocation}</p>
@@ -43,7 +47,7 @@ class Map extends Component {
                 <p>Currently Active: {waterloc.active === 1 ? "No" : "Yes"}</p>
                 <p>Hours: {waterloc.hours}</p>
               </div>
-            </InfoWindow>
+            </InfoWindow>}
           
          </Marker>
          )

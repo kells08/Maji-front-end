@@ -25,7 +25,27 @@ class WaterZone extends Component {
       }))
   }
 
-  //active storage post request:
+  // //active storage post request:
+  // createNewLoc = ({geolocation, pluscode, city, country, details, active, hours}) => {
+  //   const token = localStorage.token
+  //   const data = new FormData(e.target)
+  //   fetch('http://localhost:3000/water_locations', {
+  //     method: 'POST',
+  //     headers: {
+  //       //'Content-Type': 'application/json',
+  //       'Authorization': `Bearer ${token}`
+  //     },
+  //     body: data
+  //       }
+  //     })
+  //   })
+  //   .then(resp => resp.json())
+  //   .then(new_water_location => 
+  //     this.setState({
+  //       water_locations: [ ...this.state.water_locations, new_water_location ]
+  //     }))
+  // }
+
   createNewLoc = ({geolocation, pluscode, city, country, details, active, hours}) => {
     const token = localStorage.token
     fetch('http://localhost:3000/water_locations', {
