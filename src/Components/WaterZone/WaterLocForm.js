@@ -29,7 +29,7 @@ class WaterLocForm extends Component {
           <input name="pluscode" placeholder="pluscode" value={pluscode} onChange={this.onChange} /><br/>
           <input name="city" placeholder="city" value={city} onChange={this.onChange} /><br/>
           <input name="country" placeholder="country" value={country} onChange={this.onChange} /><br/>
-          <input type="file" name="image" value={image} onChange={this.onChange} /><br/>
+          <input type="file" name="image" value={image} onChange={this.onChange} style={{border:"1px solid black"}}/><br/>
           <textarea name="details" placeholder="details" value={details} onChange={this.onChange} /><br/>
           <select value={active} onChange={this.onChange} >
             <option defaultValue="true">Currently Active</option>
