@@ -7,7 +7,7 @@ class WaterLocForm extends Component {
     "pluscode": "",
     "city": "",
     "country": "",
-    "img": null,
+    "image": null,
     "details": "",
     "active": "1",
     "hours": ""
@@ -21,7 +21,7 @@ class WaterLocForm extends Component {
 
   render() {
     console.log("water-form-props", this.props.water_locations)
-    const {geolocation, pluscode, city, country, details, active, hours} = this.props.water_locations
+    const {geolocation, pluscode, city, country, image, details, active, hours} = this.props.water_locations
     return (
       <div >
           <h3>Add a water source:</h3>
@@ -29,8 +29,9 @@ class WaterLocForm extends Component {
           <input name="pluscode" placeholder="pluscode" value={pluscode} onChange={this.onChange} /><br/>
           <input name="city" placeholder="city" value={city} onChange={this.onChange} /><br/>
           <input name="country" placeholder="country" value={country} onChange={this.onChange} /><br/>
+          <input type="file" name="image" value={image} onChange={this.onChange} /><br/>
           <textarea name="details" placeholder="details" value={details} onChange={this.onChange} /><br/>
-          <select value={active} onChange={this.onChange}>
+          <select value={active} onChange={this.onChange} >
             <option defaultValue="true">Currently Active</option>
             <option value="false">Not Currently Active</option>
           </select><br/>
