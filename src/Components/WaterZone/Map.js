@@ -13,7 +13,7 @@ class Map extends Component {
         defaultCenter={{ lat: -3.558535, lng: 37.552250 }}>
         {waterlocs.map(waterloc => {
           let [ lat, lng ] = waterloc.geolocation.split(', ').map(parseFloat) 
-          return <WaterMarker lat={lat} lng={lng} waterloc={waterloc} />
+          return <WaterMarker lat={lat} lng={lng} waterloc={waterloc} selectMarker={this.props.selectMarker}/>
         })}
       </GoogleMap>
     );

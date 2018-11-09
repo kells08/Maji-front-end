@@ -3,14 +3,14 @@ import React, { Component } from 'react';
 class WaterLocForm extends Component {
 
   state = {
-    "geolocation": "",
-    "pluscode": "",
-    "city": "",
-    "country": "",
-    "image": null,
-    "details": "",
-    "active": "1",
-    "hours": ""
+    "geolocation": this.props.geolocation || "",
+    "pluscode": this.props.pluscode || "",
+    "city": this.props.city || "",
+    "country": this.props.country || "",
+    "image": this.props.image || null,
+    "details": this.props.details || "",
+    "active": this.props.active || "1",
+    "hours": this.props.hours || ""
 }
   
   onChange = e => {
@@ -21,7 +21,7 @@ class WaterLocForm extends Component {
 
   render() {
     console.log("water-form-props", this.props.water_locations)
-    const {geolocation, pluscode, city, country, image, details, active, hours} = this.props.water_locations
+    const {geolocation, pluscode, city, country, image, details, active, hours} = this.state
     return (
       <div >
           <h3>Add a water source:</h3>
@@ -36,7 +36,7 @@ class WaterLocForm extends Component {
             <option value="false">Not Currently Active</option>
           </select><br/>
           <input name="hours" placeholder="hours" value={hours} onChange={this.onChange} /><br/>
-          <button onClick={() => this.props.createNewLoc({...this.state})}>Submit</button><br/><br/>
+          <button onClick={() => this.props.saveWaterLoc({...this.state})}>Submit</button><br/><br/>
       </div>
 
     );
