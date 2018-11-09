@@ -25,6 +25,7 @@ class WaterZone extends Component {
       }))
   }
 
+  //active storage post request:
   createNewLoc = ({geolocation, pluscode, city, country, details, active, hours}) => {
     const token = localStorage.token
     fetch('http://localhost:3000/water_locations', {
@@ -65,8 +66,6 @@ class WaterZone extends Component {
           </div>
         <WaterLocForm water_locations={this.state.water_locations} createNewLoc={this.createNewLoc}/>
       </div>
-
-
     );
   }
 }
