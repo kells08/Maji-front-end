@@ -20,5 +20,4 @@ class Map extends Component {
   }
 }
 
-
 export default withScriptjs(withGoogleMap(Map));

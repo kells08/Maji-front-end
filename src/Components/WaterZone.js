@@ -29,33 +29,53 @@ class WaterZone extends Component {
   }
 
   //active storage post request:
-  saveWaterLoc = ({geolocation, pluscode, city, country, details, active, hours}) => {
+  saveWaterLoc = e => {
+    e.preventDefault();
     const token = localStorage.token
+    const data = new FormData(e.target);
     fetch('http://localhost:3000/water_locations', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
       },
-      body: JSON.stringify ({
-        water_location: {
-          geolocation, 
-          pluscode,
-          city,
-          country,
-          details,
-          active,
-          hours
-        }
-      })
-    })
+      body: data 
+        })
     .then(resp => resp.json())
     .then(new_water_location => 
       this.setState({
         water_locations: [ ...this.state.water_locations, new_water_location ],
         selectedMarker: null
-      }))
+      })
+    )
   }
+  
+  // saveWaterLoc = ({geolocation, pluscode, city, country, details, active, hours}) => {
+  //   const token = localStorage.token
+  //   fetch('http://localhost:3000/water_locations', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       'Authorization': `Bearer ${token}`
+  //     },
+  //     body: JSON.stringify ({
+  //       water_location: {
+  //         geolocation, 
+  //         pluscode,
+  //         city,
+  //         country,
+  //         details,
+  //         active,
+  //         hours
+  //       }
+  //     })
+  //   })
+  //   .then(resp => resp.json())
+  //   .then(new_water_location => 
+  //     this.setState({
+  //       water_locations: [ ...this.state.water_locations, new_water_location ],
+  //       selectedMarker: null
+  //     }))
+  // }
 
   // updateAllWaterLocs = allWaterLocs => {
   //   this.setState({
