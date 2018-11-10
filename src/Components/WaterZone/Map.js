@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { withScriptjs, withGoogleMap, GoogleMap } from "react-google-maps"
 import { WaterMarker } from './WaterMarker'
@@ -20,6 +19,5 @@ class Map extends Component {
     );
   }
 }
-
 
 export default withScriptjs(withGoogleMap(Map));
