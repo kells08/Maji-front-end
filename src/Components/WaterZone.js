@@ -77,16 +77,16 @@ class WaterZone extends Component {
   //     }))
   // }
 
-  // updateAllWaterLocs = allWaterLocs => {
-  //   this.setState({
-  //     currentMarker: null,
-  //     selectedMarker: null,
-  //     water_locations: allWaterLocs
-  //   })
-  // }
+  updateAllWaterLocs = allWaterLocs => {
+    this.setState({
+      currentMarker: null,
+      selectedMarker: null,
+      water_locations: allWaterLocs
+    })
+  }
 
   selectMarker = (marker) => {
-    console.log("marker selected", marker.target)
+    console.log("marker selected", marker)
     this.setState({selectedMarker: marker, clicked:!this.state.clicked})
   }
 
@@ -102,7 +102,8 @@ class WaterZone extends Component {
           selectMarker={this.selectMarker}/>
           </div>
         <WaterLocForm water_locations={this.state.water_locations} saveWaterLoc={this.saveWaterLoc} 
-        selectedMarker={this.state.selectedMarker} />
+        selectedMarker={this.state.selectedMarker} 
+        updateAllWaterLocs={this.updateAllWaterLocs} />
       </div>
     );
   }

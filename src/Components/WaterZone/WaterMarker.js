@@ -28,7 +28,7 @@ class WaterMarker extends Component {
              <p>Details: {waterloc.details}</p>
              <p>Currently Active: {waterloc.active === 1 ? "No" : "Yes"}</p>
              <p>Hours: {waterloc.hours}</p>
-             <button onClick={this.props.selectMarker}>Edit</button>
+             <button onClick={e => this.props.selectMarker(waterloc)}>Edit</button>
            </div>
          </InfoWindow>}
        

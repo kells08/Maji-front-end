@@ -10,7 +10,8 @@ class WaterLocForm extends Component {
     "image": this.props.image || null,
     "details": this.props.details || "",
     "active": this.props.active || "1",
-    "hours": this.props.hours || ""
+    "hours": this.props.hours || "",
+    "id": this.props.id || ""
 }
   
   onChange = e => {
@@ -52,7 +53,7 @@ class WaterLocForm extends Component {
         hours: '',
         id: ''
       }, () => {
-        this.props.updateAllNotes(response);
+        this.props.updateAllWaterLocs(response);
       })
     })
 }
