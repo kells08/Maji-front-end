@@ -28,12 +28,18 @@ class Shop extends Component {
   render() {
     console.log("products", this.state.products)
     return (
-      <div style={{border:"2px solid green"}}>
+      <section id="three" className="wrapper style2">
+				<div className="inner">
         <h3>Shop our products!</h3>
-        {this.state.products.map(product => {
-          return <Product key={product.id} product={product}/> 
-        })}
-      </div>
+					<div className="grid-style">
+            {this.state.products.map(product => {
+              return <Product key={product.id} product={product}/> 
+            })}							
+          </div>
+				</div>
+			</section>
+        
+        
     );
   }
 }
