@@ -3444,15 +3444,16 @@
 		}
 
 			#header > .logo a {
-				font-size: 1.25rem;
-				color: #FFF;
+        font-size: 1.25rem;
+        font-weight: 400;
+				color: rgba(255, 255, 255, 0.801);
 				text-decoration: none;
 			}
 
 			#header > .logo span {
-				font-weight: 300;
-				font-size: .75rem;
-				color: rgba(255, 255, 255, 0.5);
+				font-weight: 500;
+				font-size: .8rem;
+				color: rgba(255, 255, 255, 0.856);
 			}
 
 		#header > a {

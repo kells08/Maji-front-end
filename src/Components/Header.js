@@ -6,7 +6,9 @@ class Header extends Component {
     return (
       <div>
         <header id="header" className="alt">
-          <div className="logo"><a href="index.html">Resourceful <span>serving -  funding - sharing</span></a></div>
+          <div className="logo">
+            <a href="index.html">Resourceful <span>serving -  funding - sharing</span></a>
+          </div>
           <a href="#menu" className="toggle"><span>Menu</span></a>  
         </header>
         <Nav handleClick={this.props.handleClick}/>
@@ -22,7 +24,6 @@ class Header extends Component {
           <div className="inner">
             <h1>Maji</h1>
             <a href="#one" className="button special scrolly">Get Started</a>
-            
           </div>
         </section>  
       </div>
