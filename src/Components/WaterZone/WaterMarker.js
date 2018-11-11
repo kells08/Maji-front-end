@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Marker, InfoWindow } from "react-google-maps"
 
+
 class WaterMarker extends Component {
 
   state={
