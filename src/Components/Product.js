@@ -21,12 +21,22 @@ class Product extends Component {
   render() {
     const product = this.props.product
     return (
-      <div style={{border:"1px solid black", width:"33%", float:"left"}}>
-          <h3>{product.title}</h3>
-          <p>{product.description}</p>
-          <h6>${product.price}</h6>
-          <button onClick={this.buyAmount} value={product.price}>Buy</button><br/><br/>
-      </div>
+      <div>
+				<div className="box">
+          <div className="content">	
+            <div className="image fit">
+              <img src="images/pic02.jpg" alt="" />
+            </div>
+            <hr/>
+            <header className="align-center">
+              <h3>{product.title}</h3>  
+              <h4>${product.price}</h4>
+            </header>
+            <p>{product.description}</p>
+            <button onClick={this.buyAmount} value={product.price} className="button special scrolly">Buy</button>
+          </div>
+        </div>
+			</div>
     );
   }
 }

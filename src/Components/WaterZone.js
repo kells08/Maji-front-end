@@ -94,16 +94,28 @@ class WaterZone extends Component {
     console.log("water_locations", this.state.water_locations)  
     return (
       <div>
-      <div style={{border:"2px solid red"}}>
-        <Banner />
-          <Map waterlocs={this.state.water_locations} googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyAg921cx5N2iHErau5GiVr9x-rsG9_42vs&v=3.exp&libraries=geometry,drawing,places" loadingElement={<div style={{ height: `100%` }} />}
-          containerElement={<div style={{ height: `400px` }} />}
-          mapElement={<div style={{ height: `100%` }} />}
-          selectMarker={this.selectMarker} />
+        <section id="one" className="wrapper style2">
+          <div className="inner">
+            <div>
+            <Banner />
+              <div className="box">
+                  <Map waterlocs={this.state.water_locations} googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyAg921cx5N2iHErau5GiVr9x-rsG9_42vs&v=3.exp&libraries=geometry,drawing,places" loadingElement={<div style={{ height: `100%` }} />}
+                  containerElement={<div style={{ height: `400px` }} />}
+                  mapElement={<div style={{ height: `100%` }} />}
+                  selectMarker={this.selectMarker} />
+                <div className="content">
+                  <header className="align-center">
+                    <WaterLocForm water_locations={this.state.water_locations} 
+                      saveWaterLoc={this.saveWaterLoc} 
+                      selectedMarker={this.state.selectedMarker} 
+                      updateAllWaterLocs={this.updateAllWaterLocs} />
+                  </header>
+                  <hr />
+                </div>
+              </div>
+            </div>
           </div>
-        <WaterLocForm water_locations={this.state.water_locations} saveWaterLoc={this.saveWaterLoc} 
-        selectedMarker={this.state.selectedMarker} 
-        updateAllWaterLocs={this.updateAllWaterLocs} />
+        </section>
       </div>
     );
   }

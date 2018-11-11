@@ -63,20 +63,20 @@ class WaterLocForm extends Component {
     const {geolocation, pluscode, city, country, image, details, active, hours} = this.state
     return (
       <div >
-        <form class="wrapper" onSubmit={(e) => this.props.saveWaterLoc(e)}>
+        <form className="wrapper" onSubmit={(e) => this.props.saveWaterLoc(e)}>
           <h3>Add a water source:</h3>
           <input name="water_location[geolocation]" placeholder="geolocation" id="geolocation" value={geolocation} onChange={this.onChange} /><br/>
           <input name="water_location[pluscode]" placeholder="pluscode" id="pluscode" value={pluscode} onChange={this.onChange} /><br/>
           <input name="water_location[city]" placeholder="city" id="city" value={city} onChange={this.onChange} /><br/>
           <input name="water_location[country]" placeholder="country" id="country" value={country} onChange={this.onChange} /><br/>
-          <input type="file" name="water_location[image]" value={image} onChange={this.onChange} style={{border:"1px solid black"}}/><br/>
+          <input type="file" name="water_location[image]" value={image} onChange={this.onChange} style={{border:"1px solid grey"}}/><br/>
           <textarea name="water_location[details]" placeholder="details" id="details" value={details} onChange={this.onChange} /><br/>
           <select name="water_location[active]" value={active} onChange={this.onChange} >
             <option defaultValue="true">Currently Active</option>
             <option value="false">Not Currently Active</option>
           </select><br/>
           <input name="water_location[hours]" placeholder="hours" id="hours" value={hours} onChange={this.onChange} /><br/>
-          <button>Submit</button><br/><br/>
+          <button className="button special scrolly">Submit</button><br/><br/>
           </form>
       </div>
 
