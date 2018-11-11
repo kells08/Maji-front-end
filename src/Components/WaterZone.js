@@ -96,10 +96,10 @@ class WaterZone extends Component {
       <div>
       <div style={{border:"2px solid red"}}>
         <Banner />
-          <Map waterlocs={this.state.water_locations} googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places" loadingElement={<div style={{ height: `100%` }} />}
+          <Map waterlocs={this.state.water_locations} googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyAg921cx5N2iHErau5GiVr9x-rsG9_42vs&v=3.exp&libraries=geometry,drawing,places" loadingElement={<div style={{ height: `100%` }} />}
           containerElement={<div style={{ height: `400px` }} />}
           mapElement={<div style={{ height: `100%` }} />}
-          selectMarker={this.selectMarker}/>
+          selectMarker={this.selectMarker} />
           </div>
         <WaterLocForm water_locations={this.state.water_locations} saveWaterLoc={this.saveWaterLoc} 
         selectedMarker={this.state.selectedMarker} 

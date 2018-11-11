@@ -4,10 +4,13 @@ import Nav from './Nav';
 class Header extends Component {
   render() {
     return (
-      <div style={{border:"2px solid green"}}>
-        <h1>Maji</h1>
-        <Nav handleClick={this.props.handleClick}/>
-      </div>
+      <section id="banner" data-video="images/banner">
+				<div class="inner">
+					<h1>Maji</h1>
+					<a href="#one" class="button special scrolly">Get Started</a>
+          {/* <Nav handleClick={this.props.handleClick}/> */}
+				</div>
+			</section>  
     );
   }
 }

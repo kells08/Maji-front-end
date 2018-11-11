@@ -63,7 +63,7 @@ class WaterLocForm extends Component {
     const {geolocation, pluscode, city, country, image, details, active, hours} = this.state
     return (
       <div >
-        <form onSubmit={(e) => this.props.saveWaterLoc(e)}>
+        <form class="wrapper" onSubmit={(e) => this.props.saveWaterLoc(e)}>
           <h3>Add a water source:</h3>
           <input name="water_location[geolocation]" placeholder="geolocation" id="geolocation" value={geolocation} onChange={this.onChange} /><br/>
           <input name="water_location[pluscode]" placeholder="pluscode" id="pluscode" value={pluscode} onChange={this.onChange} /><br/>
