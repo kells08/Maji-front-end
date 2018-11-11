@@ -27,7 +27,7 @@ class MainContainer extends Component {
       />
    )
     return (
-      <div style={{border:"2px solid orange"}}>
+      <div>
         <WaterZone />
         <Wrapper />
         <DonateForm />
