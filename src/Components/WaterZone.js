@@ -6,10 +6,12 @@ import WaterLocForm from './WaterZone/WaterLocForm'
 class WaterZone extends Component {
 
   state = {
-    water_locations: [],
+    selectedMarker: null,
     clicked: false,
-    currentMarker: null,
-    selectedMarker: null
+    clickedCreate: false,
+    water_locations: [],
+    currentMarker: null, 
+    mode: 'view'
   }
 
   componentDidMount() {
@@ -28,11 +30,37 @@ class WaterZone extends Component {
       }))
   }
 
+  createWaterLoc = () => {
+    this.setState({
+      clickedCreate: !this.state.clickedCreate
+    })
+  }
+
   //active storage post request:
-  saveWaterLoc = e => {
+  saveWaterLoc = (e, id) => {
     e.preventDefault();
     const token = localStorage.token
     const data = new FormData(e.target);
+    if (id) {
+      fetch('http://localhost:3000/water_locations/'+ id, {
+        method: 'PATCH',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        },
+        body: data 
+          })
+      .then(resp => resp.json())
+      .then(edit_water_location => 
+        //console.log(edit_water_location)
+        this.setState({
+          water_locations: [ ...this.state.water_locations, edit_water_location],
+          selectedMarker: null, 
+          mode: 'view'
+          // clickedCreate: false
+        })
+      )
+    }
+    else 
     fetch('http://localhost:3000/water_locations', {
       method: 'POST',
       headers: {
@@ -44,10 +72,12 @@ class WaterZone extends Component {
     .then(new_water_location => 
       this.setState({
         water_locations: [ ...this.state.water_locations, new_water_location ],
-        selectedMarker: null
+        selectedMarker: null,
+        clickedCreate: false
       })
     )
   }
+  
   
   // saveWaterLoc = ({geolocation, pluscode, city, country, details, active, hours}) => {
   //   const token = localStorage.token
@@ -87,12 +117,20 @@ class WaterZone extends Component {
 
   selectMarker = (marker) => {
     console.log("marker selected", marker)
-    this.setState({selectedMarker: marker, clicked:!this.state.clicked})
+    this.setState({
+      selectedMarker: marker, 
+      clicked:!this.state.clicked
+    })
+  }
+
+  handleEdit = () => {
+    this.setState({
+      mode:'edit'
+    })
   }
 
   render() {
     console.log("water_locations", this.state.water_locations)  
-    const key = "key=AIzaSyAg921cx5N2iHErau5GiVr9x-rsG9_42vs&"
     return (
       <div>
         <section id="one" className="wrapper style2">
@@ -100,16 +138,20 @@ class WaterZone extends Component {
             <div>
             <Banner />
               <div className="box">
-                  <Map waterlocs={this.state.water_locations} googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places" loadingElement={<div style={{ height: `100%` }} />}
-                  containerElement={<div style={{ height: `400px` }} />}
-                  mapElement={<div style={{ height: `100%` }} />}
-                  selectMarker={this.selectMarker} />
+                <Map waterlocs={this.state.water_locations} googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyAg921cx5N2iHErau5GiVr9x-rsG9_42vs&v=3.exp&libraries=geometry,drawing,places" loadingElement={<div style={{ height: `100%` }} />}
+                containerElement={<div style={{ height: `400px` }} />}
+                mapElement={<div style={{ height: `100%` }} />}
+                selectMarker={this.selectMarker} mode={this.state.mode} handleEdit={this.handleEdit}/>
+                  <br/><button onClick={this.createWaterLoc}>Add New</button>
                 <div className="content">
                   <header className="align-center">
+                  {this.state.clickedCreate || (this.state.mode === 'edit') ?
                     <WaterLocForm water_locations={this.state.water_locations} 
                       saveWaterLoc={this.saveWaterLoc} 
                       selectedMarker={this.state.selectedMarker} 
-                      updateAllWaterLocs={this.updateAllWaterLocs} />
+                      updateAllWaterLocs={this.updateAllWaterLocs} {...this.state.selectedMarker}/>
+                  : null
+                  }
                   </header>
                   <hr />
                 </div>

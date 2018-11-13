@@ -12,58 +12,20 @@ class WaterLocForm extends Component {
     "active": this.props.active || "1",
     "hours": this.props.hours || "",
     "id": this.props.id || ""
-}
-  
-  onChange = e => {
+  }
+
+  onChange = (e) => {
     const elementInState = e.target.id;
     const value = e.target.value;
     this.setState({ [elementInState]: value })
   }
 
-  saveEdit= ({ geolocation, pluscode, city, country, image, details, active, hours }) => {
-    const token = localStorage.token
-    fetch(`http://localhost:3000/water_locations/${this.state.id}`, {
-    method: 'PATCH',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    },
-    body: JSON.stringify ({
-      note: { 
-        geolocation, 
-        pluscode, 
-        city, 
-        country, 
-        image, 
-        details, 
-        active, 
-        hours
-      }
-    })})
-    .then(resp => resp.json())
-    .then(response => {
-      this.setState ({ 
-        geolocation: '', 
-        pluscode: '', 
-        city: '', 
-        country: '', 
-        image: '', 
-        details: '', 
-        active: '', 
-        hours: '',
-        id: ''
-      }, () => {
-        this.props.updateAllWaterLocs(response);
-      })
-    })
-}
-
   render() {
-    console.log("water-form-props", this.props.water_locations)
+    console.log("water-form-props", this.props)
     const {geolocation, pluscode, city, country, image, details, active, hours} = this.state
     return (
-      <div >
-        <form className="wrapper" onSubmit={(e) => this.props.saveWaterLoc(e)}>
+      <div>
+        <form className="wrapper" onSubmit={(e) => this.props.saveWaterLoc(e, this.props.id)}>
           <h3>Add a water source:</h3>
           <input name="water_location[geolocation]" placeholder="geolocation" id="geolocation" value={geolocation} onChange={this.onChange} /><br/>
           <input name="water_location[pluscode]" placeholder="pluscode" id="pluscode" value={pluscode} onChange={this.onChange} /><br/>
