@@ -12,8 +12,8 @@ class WaterLocForm extends Component {
     "active": this.props.active || "1",
     "hours": this.props.hours || "",
     "id": this.props.id || ""
-  }
-
+}
+  
   onChange = (e) => {
     const elementInState = e.target.id;
     const value = e.target.value;

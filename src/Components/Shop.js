@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import Product from './Product'
+import Project from './Project'
 
 class Shop extends Component {
 
   state = {
-    products: []
+    items: [],
+    cartItems: []
   }
 
   componentDidMount() {
     const token = localStorage.token;
-    fetch('http://localhost:3000/products/', {
+    fetch('http://localhost:3000/items/', {
       method:'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -19,27 +21,74 @@ class Shop extends Component {
     .then(resp => resp.json())
     .then(data => 
       this.setState({
-        products: data
+        items: data
+      }) 
+    )
+    
+    fetch('http://localhost:3000/cart_items/', {
+      method:'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }
+    })
+    .then(resp => resp.json())
+    .then(data => 
+      this.setState({
+        cartItems: data
       }) 
     )
   }
 
+  addCartItem = (item, amount) => {
+    const token = localStorage.token
+    fetch('http://localhost:3000/cart_items/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
+      },
+      body: JSON.stringify({
+        cart_item: {
+          item_id: item.id,
+          price: amount
+        }
+      })
+    })
+    .then(resp => resp.json())
+    .then(cartItem => {
+      this.setState({
+        cartItems: [ ...this.state.cartItems, cartItem]
+        })
+      }
+    )
+  }
 
   render() {
-    console.log("products", this.state.products)
+    let products = this.state.items.filter( item => item.category === 'product')
+    let projects = this.state.items.filter( item => item.category === 'project')
+
+    console.log("items", this.state.items)
     return (
       <section id="three" className="wrapper style2">
 				<div className="inner">
-        <h3>Shop our products!</h3>
+        <h3>Shop our Products!</h3>
 					<div className="grid-style">
-            {this.state.products.map(product => {
-              return <Product key={product.id} product={product}/> 
+            {products.map(item => {
+              return <Product addCartItem={this.addCartItem} key={item.id} item={item}/> 
+            })}							
+          </div>
+				</div>
+        <div className="inner">
+        <br/>
+        <h3>Contribute to our Projects!</h3>
+					<div className="grid-style">
+            {projects.map(item => {
+              return <Project addCartItem={this.addCartItem} key={item.id} item={item}/> 
             })}							
           </div>
 				</div>
 			</section>
-        
-        
     );
   }
 }

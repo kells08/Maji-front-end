@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import { Marker, InfoWindow } from "react-google-maps"
-import WaterLocForm from './WaterLocForm'
 
 class WaterMarker extends Component {
 
-  state={
+  state = {
     isOpen: false,
     "geolocation": this.props.geolocation || "",
     "pluscode": this.props.pluscode || "",
@@ -77,7 +76,7 @@ class WaterMarker extends Component {
       {this.state.isOpen && // (this.props.selectedLocation === waterloc &&)
         <InfoWindow position={{lat, lng}} onCloseClick={this.onToggleOpen}>
           <div>
-            <img src={waterloc.image_url} alt=""/>
+            <img src={waterloc.image_url} alt=":("/>
             <p>Geolocation: {waterloc.geolocation}</p>
             <p>City: {waterloc.city}</p>
             <p>Details: {waterloc.details}</p>

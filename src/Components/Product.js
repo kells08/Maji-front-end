@@ -2,38 +2,36 @@ import React, { Component } from 'react';
 
 class Product extends Component {
 
-  state= {
-    purchase: []
+  state = {
+    purchase: "",
+    selectedItems: []
   } //each trxn will currently override purchase total
   //need to add each "buy" together until state is reset after some change
 
-  buyAmount = (e) => {
-    console.log("price", e.target.value)
-    this.setState({
-      purchase: { ...this.state.purchase, purchase: e.target.value}
-    })//try  this format: this.setState({ user: { ...this.state.user, [e.target.name]: e.target.value} })
-  }  //then .reduce to get total in cart
-
-  // getPrice = () =>{
-    
-  // }
+  // buyAmount = (e) => {
+  //   console.log("price", e.target.value)
+  //   this.setState({
+  //     purchase: { ...this.state.purchase, purchase: e.target.value}
+  //   })
+  // }  
 
   render() {
-    const product = this.props.product
+    console.log("products", this.props)
+    const item = this.props.item
     return (
       <div>
 				<div className="box">
           <div className="content">	
             <div className="image fit">
-              <img src="images/pic02.jpg" alt="" />
+              <img src={item.image_url} alt=":(" />
             </div>
             <hr/>
             <header className="align-center">
-              <h3>{product.title}</h3>  
-              <h4>${product.price}</h4>
+              <h3>{item.title}</h3>  
+              <h4>${item.price}</h4>
             </header>
-            <p>{product.description}</p>
-            <button onClick={this.buyAmount} value={product.price} className="button special scrolly">Buy</button>
+            <p>{item.description}</p>
+            <button onClick={e => this.props.addCartItem(item, item.price)} value={item.price} className="button special scrolly">Buy</button>
           </div>
         </div>
 			</div>
