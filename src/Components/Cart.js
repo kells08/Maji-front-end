@@ -6,7 +6,8 @@ class Cart extends Component {
   state = {
     cart: [],
     purchased: false,
-    prices: []
+    prices: [],
+    total: []
   }
 
   checkout = () => {
@@ -19,14 +20,29 @@ class Cart extends Component {
   getPrices = () => {
     console.log(this.state.cart)
     let itemsInCart = this.state.cart
-    itemsInCart.map(itemInCart => {
-      //console.log("items in cart", itemInCart)
+    let prices = []
+    let total = 0
+    for (let i=0; i<itemsInCart.length; i++) {
+      prices.push(itemsInCart[i].price)
+    } console.log(prices)
       this.setState({
-        prices: itemInCart.price
-      }) 
-    })
-    console.log("prices", this.state.prices)
-    //this.state.prices.reduce()
+        prices: prices
+      })
+    for (let j=0; j<prices.length; j++) {
+      total = total + prices[j]
+    } console.log(total)
+      this.setState({
+        total: total
+      })
+    // itemsInCart.map(itemInCart => {
+    //   console.log("prices in cart", itemInCart.price)
+    //   let prices = itemInCart.price
+      
+    // console.log("prices", this.state.prices)
+    // //this.state.prices.reduce()
+    // }, this.setState({
+    //     prices: [...this.state.prices, prices]
+    //   }))
   }
 
   componentDidMount() {
@@ -47,19 +63,24 @@ class Cart extends Component {
       }, () => this.getPrices()) 
     )
   }
-
-  //then .reduce to get total in cart
-
+  
   render() {
    // {cart.map(item => {
     return (
       <div>
+        <img src="../../public/cart.jpg" alt="cart"/>
         <h3>Cart</h3>
-        <p>Total: $</p>
-        <PaypalButton /><br/>
+        {this.state.cart.map(itemInCart => {
+          return <p>{itemInCart.item_id} ${itemInCart.price}</p>
+          })
+        }
+        <hr/>
+        <h3>Total: ${this.state.total}</h3>
+        <PaypalButton total={this.state.total}/><br/>
       </div>
-      )
-    }
+    )
+  }
+
 }
 
 export default Cart;
