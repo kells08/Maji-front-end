@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Product from './Product'
 import Project from './Project'
+import Cart from './Cart'
 
 class Shop extends Component {
 
@@ -64,12 +65,29 @@ class Shop extends Component {
     )
   }
 
+  handleDelete = (id) => {
+    const token = localStorage.token
+    fetch(`http://localhost:3000/cart_items/`+ id, {
+      method: 'DELETE',
+      headers: {
+       'Content-Type': 'application/json',
+       'Authorization': `Bearer ${token}`
+      }
+    })
+    .then(deleteItem => {
+      this.setState ({  
+        cartItems: [ ...this.state.cartItems.filter(item => item.id != id)]
+      })
+    })
+  }
+
   render() {
     let products = this.state.items.filter( item => item.category === 'product')
     let projects = this.state.items.filter( item => item.category === 'project')
 
     console.log("items", this.state.items)
     return (
+      <div>
       <section id="three" className="wrapper style2">
 				<div className="inner">
         <h3>Shop our Products!</h3>
@@ -89,7 +107,9 @@ class Shop extends Component {
           </div>
 				</div>
 			</section>
-    );
+      <Cart cartItems={this.state.cartItems} handleDelete={this.handleDelete}/>
+   </div> 
+   );
   }
 }
 

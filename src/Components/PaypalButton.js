@@ -6,7 +6,8 @@ class PaypalButton extends Component {
   state = {
     paypal: null,
 		showButton: false
-  }
+	}
+	
 
   render() {
 		console.log("paypalTotal", this.props.total)

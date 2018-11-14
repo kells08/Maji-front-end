@@ -3,7 +3,6 @@ import WaterZone from './WaterZone';
 import Wrapper from './Wrapper';
 import DonateForm from './DonateForm';
 import Shop from './Shop';
-import Cart from './Cart';
 import {Redirect} from 'react-router-dom'
 
 class MainContainer extends Component {
@@ -30,7 +29,6 @@ class MainContainer extends Component {
         <Wrapper />
         <DonateForm />
         <Shop buyAmount={this.buyAmount}/>
-        <Cart />
       </div>
     );
   }

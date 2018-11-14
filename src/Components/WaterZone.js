@@ -53,7 +53,7 @@ class WaterZone extends Component {
       .then(edit_water_location => 
         //console.log(edit_water_location)
         this.setState({
-          water_locations: [ ...this.state.water_locations, edit_water_location],
+          water_locations: [ ...this.state.water_locations.filter( loc => loc.id != id), edit_water_location],
           selectedMarker: null, 
           mode: 'view'
           // clickedCreate: false
