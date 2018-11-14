@@ -106,6 +106,7 @@ class Shop extends Component {
             })}							
           </div>
 				</div>
+        <button onClick={this.goCheckout}>Checkout</button>
 			</section>
       <Cart cartItems={this.state.cartItems} handleDelete={this.handleDelete}/>
    </div> 
