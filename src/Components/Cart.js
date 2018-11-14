@@ -22,8 +22,6 @@ class Cart extends Component {
     }, 0)
   }
 
-  
-
   render() {
    // {cart.map(item => {
      console.log(this.props.cartItems)

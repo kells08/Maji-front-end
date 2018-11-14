@@ -4,7 +4,8 @@ class Nav extends Component {
 
   render() {
     return (
-      <nav id="menu">
+      <nav className={this.props.active ? 'visible' : ''} id="menu">
+        <a onClick={this.props.close} href="#menu" class="close" ></a>
         <ul className="links">
           <li><a href="index.html" onClick={ e => this.props.handleClick(e)}>Logout</a></li>
           <li><a href="generic.html">Donate</a></li>

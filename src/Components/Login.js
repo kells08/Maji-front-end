@@ -135,6 +135,7 @@ class Login extends Component {
             <input type="text" name="password" placeholder="password" onChange={this.handleData}/><br/>
             <button onClick={() => this.login()}>Submit</button>
           </div>
+          <br/>
           <div>
             <h3 onClick={this.createUser}>No account? Signup!</h3>
           </div>
