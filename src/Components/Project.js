@@ -29,7 +29,7 @@ class Project extends Component {
               <h3>{item.title}</h3>  
             </header>
             <h4>{item.description}</h4>
-            <p>{item.details}</p>
+            <p className="project">{item.details}</p>
             <input onChange={this.onChange} placeholder="amount to contribute" ></input><br/><br/>
             <button onClick={e => this.props.addCartItem(item, this.state.amount)} value={item.price} className="button special scrolly">Buy</button>
           </div>

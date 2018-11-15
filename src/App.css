@@ -1661,6 +1661,14 @@
 
 	p {
 		margin: 0 0 2rem 0;
+		height: 5em;
+		overflow: auto;
+	}
+
+	p.project {
+		margin: 0 0 2rem 0;
+		height: 20em;
+		overflow: auto;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
