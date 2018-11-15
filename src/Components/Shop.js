@@ -7,7 +7,8 @@ class Shop extends Component {
 
   state = {
     items: [],
-    cartItems: []
+    cartItems: [],
+    checkout: false
   }
 
   componentDidMount() {
@@ -81,6 +82,12 @@ class Shop extends Component {
     })
   }
 
+  goCheckout = () => {
+    this.setState({
+      checkout: !this.state.checkout
+    })
+  }
+
   render() {
     let products = this.state.items.filter( item => item.category === 'product')
     let projects = this.state.items.filter( item => item.category === 'project')
@@ -108,7 +115,9 @@ class Shop extends Component {
 				</div>
         <button onClick={this.goCheckout}>Checkout</button>
 			</section>
+      {this.state.checkout &&
       <Cart cartItems={this.state.cartItems} handleDelete={this.handleDelete}/>
+      }
    </div> 
    );
   }
