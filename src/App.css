@@ -2340,6 +2340,13 @@
 
 			.image.fit img {
 				width: 100%;
+				/* max-width: 50%; */
+			}
+
+			.image.fit.project img {
+				max-width: 30%;
+				margin: auto;
+				/* max-width: 50%; */
 			}
 
 		.image.main {

@@ -3,12 +3,12 @@ import React, { Component } from 'react';
 class SignupForm extends Component {
   render() {
     return (
-      <div >
+      <div>
         <br/>
           <h3>Signup for an account:</h3>
           <input type="text" name="name" placeholder="name" onChange={this.props.handleSignup}/><br/>
           <input type="text" name="username" placeholder="username" onChange={this.props.handleSignup}/><br/>
-          <input type="text" name="password" placeholder="password" onChange={this.props.handleSignup}/><br/>
+          <input type="password" name="password" placeholder="password" onChange={this.props.handleSignup}/><br/>
           <input type="text" name="phone" placeholder="phone" onChange={this.props.handleSignup}/><br/>
           <input type="text" name="email" placeholder="email" onChange={this.props.handleSignup}/><br/>
           <input type="text" name="street" placeholder="street" onChange={this.props.handleSignup}/><br/>

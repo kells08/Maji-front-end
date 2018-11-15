@@ -21,7 +21,7 @@ class Project extends Component {
       <div>
 				<div className="box">
           <div className="content">	
-            <div className="image fit">
+            <div className="image fit project">
               <img src={item.image_url} alt=":(" />
             </div>
             <hr/>

@@ -28,12 +28,13 @@ class Cart extends Component {
     return (
       <div>
         <img src="/cart.png" alt="cart"/>
-        <h3>Cart</h3>
+        <hr />
         {this.props.cartItems.map(itemInCart => {
           return (
             <div>
               <p>{itemInCart.item.title} ${itemInCart.price}</p>
               <img onClick={e => this.props.handleDelete(itemInCart.id)} src="/trashcan.png" alt="delete" />
+              
             </div>
           )
           })
