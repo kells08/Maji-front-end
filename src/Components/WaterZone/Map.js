@@ -11,7 +11,14 @@ class Map extends Component {
     return (
       <GoogleMap
         defaultZoom={9}
-        defaultCenter={{ lat: -3.558535, lng: 37.552250 }}>
+        defaultCenter={{ lat: -3.558535, lng: 37.552250 }}
+        options={{mapTypeId: 'hybrid'}}
+        // styles=[
+        //   {
+        //   "featureType": "road.local",
+        //   "elementType": "labels"
+        // }]
+        >
         {waterlocs.map(waterloc => {
           let [ lat, lng ] = waterloc.geolocation.split(', ').map(parseFloat) 
           return <WaterMarker lat={lat} lng={lng} waterloc={waterloc} key={waterloc.id} selectMarker={this.props.selectMarker} mode={this.props.mode} handleEdit={this.props.handleEdit}/>

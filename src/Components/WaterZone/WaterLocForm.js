@@ -24,6 +24,11 @@ class WaterLocForm extends Component {
     console.log("water-form-props", this.props)
     const {geolocation, pluscode, city, country, image, details, active, hours} = this.state
     return (
+      
+				<div class="inner">
+					<section>
+						<div class="box">
+							<div class="content">
       <div>
         <form className="wrapper" onSubmit={(e) => this.props.saveWaterLoc(e, this.props.id)}>
           <h3>Add a water source:</h3>
@@ -41,7 +46,10 @@ class WaterLocForm extends Component {
           <button className="button special scrolly">Submit</button><br/><br/>
           </form>
       </div>
-
+      </div>
+						</div>
+					</section>
+      </div>
     );
   }
 }

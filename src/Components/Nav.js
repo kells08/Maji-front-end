@@ -8,9 +8,8 @@ class Nav extends Component {
         <a onClick={this.props.close} href="#menu" class="close" ></a>
         <ul className="links">
           <li><a href="index.html" onClick={ e => this.props.handleClick(e)}>Logout</a></li>
-          <li><a href="generic.html">Donate</a></li>
-          <li><a href="elements.html">Shop</a></li>
-          <li><a href="elements.html">Cart</a></li>
+          <li><a href="#four">Donate</a></li>
+          <li><a href="#three">Shop</a></li>
         </ul>
       </nav>
     );

@@ -32,11 +32,22 @@ class Cart extends Component {
         <hr />
         {this.props.cartItems.map(itemInCart => {
           return (
-            <div>
-              <p>{itemInCart.item.title}  ${itemInCart.price}</p>
-              <img onClick={e => this.props.handleDelete(itemInCart.id)} src="/trashcan.png" alt="delete" />
-              <br/><br/>
-            </div>
+          	<section id="four" class="wrapper style2 cart">
+				      <div class="inner">
+                <div>
+					    	 <div class="box">
+                   <div class="content cart">
+                      <header class="align-center-cart">
+                        <h4>{itemInCart.item.title}  ${itemInCart.price}</h4>
+                        {/* <a className="icon fa-trash-o"></a> */}
+                        <img className="trash-icon" onClick={e => this.props.handleDelete(itemInCart.id)} src="/trashcan.png" alt="delete" />
+                        <br/><br/>
+                      </header>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
           )
           })
         }

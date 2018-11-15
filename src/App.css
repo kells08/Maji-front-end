@@ -1772,6 +1772,13 @@
 		text-align: center;
 	}
 
+	.align-center-cart {
+		text-align: center;
+		/* float: right; */
+		/* display: inline; */
+		
+	}
+
 	.align-right {
 		text-align: right;
 	}
@@ -1814,6 +1821,13 @@
 
 		.box .content {
 			padding: 3rem;
+		}
+
+		.box .content.cart {
+			padding: 0rem;
+			margin: 0rem;
+			/* clear: both; */
+			display: inline;
 		}
 
 		.box > :last-child,
@@ -2307,6 +2321,12 @@
 		.icon > .label {
 			display: none;
 		}
+
+	.trash-icon {
+		width: 1.25em;
+		/* float: left; */
+		/* display: inline; */
+	}
 
 /* Image */
 
@@ -2887,6 +2907,12 @@
 		.wrapper.style2 {
 			background-color: #f2f2f2;
 			color: #a6a6a6;
+		}
+
+		.wrapper.style2.cart {
+			background-color: #f2f2f2;
+			color: #a6a6a6;
+			padding: 0rem;
 		}
 
 			.wrapper.style2 input, .wrapper.style2 select, .wrapper.style2 textarea {
