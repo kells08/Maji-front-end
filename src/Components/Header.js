@@ -16,7 +16,7 @@ class Header extends Component {
       <div>
         <header id="header" className="alt">
           <div className="logo">
-            <a href="index.html">Resource <span>serving -  funding - sharing</span></a>
+            <a href="index.html">Water Resources <span>serving -  funding - sharing</span></a>
           </div>
           <a href="#menu" onClick={ e => this.setState({active:true})} className="toggle"><span>Menu</span></a>  
         </header>
@@ -24,6 +24,7 @@ class Header extends Component {
         <section id="banner" data-video="images/banner">
           <div className="inner">
             <h1>Maji</h1>
+      
             {/* <a href="#one" className="button special scrolly">Get Started</a> */}
           </div>
         </section>  

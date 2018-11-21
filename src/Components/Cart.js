@@ -38,10 +38,9 @@ class Cart extends Component {
 					    	 <div class="box">
                    <div class="content cart">
                       <header class="align-center-cart">
-                        <h4>{itemInCart.item.title}  ${itemInCart.price}</h4>
+                        <h4>{itemInCart.item.title}  ${itemInCart.price}   
+                        <i style={{marginLeft: '10px'}} onClick={e => this.props.handleDelete(itemInCart.id)} className="icon fa-trash-o"/></h4>
                         {/* <a className="icon fa-trash-o"></a> */}
-                        <img className="trash-icon" onClick={e => this.props.handleDelete(itemInCart.id)} src="/trashcan.png" alt="delete" />
-                        <br/><br/>
                       </header>
                     </div>
                   </div>

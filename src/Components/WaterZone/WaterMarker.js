@@ -78,6 +78,7 @@ class WaterMarker extends Component {
           <div>
             <img src={waterloc.image_url} alt=":("/>
             <p>Geolocation: {waterloc.geolocation}</p>
+            <br/><br/>
             <p>City: {waterloc.city}</p>
             <p>Details: {waterloc.details}</p>
             <p>Currently Active: {waterloc.active === 1 ? "No" : "Yes"}</p>

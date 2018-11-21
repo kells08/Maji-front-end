@@ -27,12 +27,17 @@ class DonateForm extends Component {
     console.log("donateAmount", this.state)
 
     return (
+      <section id="one" class="wrapper style2">
+				<div class="inner">
       <div>
           <h3>Donate!</h3>
-          <p>Make a donation of any amount to help support Maji's efforts.</p>
+          <h4>Make a donation of any amount to help support Maji's efforts.</h4>
           <input placeholder="Enter amount in USD" onChange={this.donateAmount} /><br/><br/>
           <PaypalButton total={this.state.total}/><br/>
+          <hr/>
       </div>
+      </div>
+      </section>
     );
   }
 }

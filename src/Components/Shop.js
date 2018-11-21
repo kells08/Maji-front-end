@@ -95,9 +95,10 @@ class Shop extends Component {
     console.log("items", this.state.items)
     return (
       <div>
-      <section id="three" className="wrapper style2">
+      <section id="three" className="wrapper style2 shop">
 				<div className="inner">
         <h3>Shop our Products!</h3>
+        <h4>Proceeds from your purchase support our local communities.</h4>
 					<div className="grid-style">
             {products.map(item => {
               return <Product addCartItem={this.addCartItem} key={item.id} item={item}/> 
@@ -107,6 +108,7 @@ class Shop extends Component {
         <div className="inner">
         <br/>
         <h3>Contribute to our Projects!</h3>
+        <h4>Help support our projects that provide essential resources for local communities in need.</h4>
 					<div className="grid-style">
             {projects.map(item => {
               return <Project addCartItem={this.addCartItem} key={item.id} item={item}/> 

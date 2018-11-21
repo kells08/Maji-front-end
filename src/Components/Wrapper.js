@@ -6,8 +6,7 @@ class Wrapper extends Component {
       <section id="four" className="wrapper style3">
 				<div className="inner">
 					<header className="align-center">
-						<h2>Look at this!</h2>
-						<p>Props to Chantal for the photo!!! </p>
+						<h3 className="h3 wrapper">By means of <span className="h3 wrapper span" >water</span>, we give <span className="h3 wrapper span">life</span> to everything.</h3>
 					</header>
 				</div>
 			</section>

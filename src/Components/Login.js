@@ -127,7 +127,7 @@ class Login extends Component {
     return (
       <div>
       {this.state.clickedSignup ? <SignupForm saveUser={this.saveUser} createUser={this.createUser} handleSignup={this.handleData}/> : 
-        <div style={{border:"2px solid green"}}>
+        <div>
           <div>
             <h2>Welcome!</h2>
             <h3>Please Login:</h3>
